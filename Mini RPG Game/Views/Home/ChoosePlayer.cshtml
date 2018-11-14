@@ -6,14 +6,14 @@
     <h2>Choose Player.</h2>
     @foreach (var p in ViewBag.players)
     {
-        <p><input type="radio" name="ID" value="@p.ID" />p.Name</p>
+        <p><input type="radio" name="ID" value="@p.ID" />@p.Name</p>
     }
 
 
     <h2>Choose Monster</h2>
     @foreach (var m in ViewBag.monsters)
     {
-        <p><input type="radio" name="ID2" value="@m.ID" /></p>
+        <p><input type="radio" name="ID2" value="@m.ID" />@m.Name</p>
     }
 
     <input type="submit"/>

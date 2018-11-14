@@ -1,13 +1,62 @@
-﻿<h1>Welcome to THE FIGHT!</h1>
-<p>It's @Session["Player"] vs. @Session["Monster"]</p>
+﻿@{Mini_RPG_Game.Models.Player p = (Mini_RPG_Game.Models.Player)Session["Player"];}
+@{Mini_RPG_Game.Models.Monster m = (Mini_RPG_Game.Models.Monster)Session["Monster"];}
+
+
+<h1>Welcome to THE FIGHT!</h1>
+<p>It's @p.Name vs. @m.Name</p>
 
 <div class=" row">
     <div class="column">
-       @{var p = @Session["Player"];}
-        @p.Name;
-        @p.HP;
+
+        <p>Name: @p.Name </p>
+        <p>HP: @p.Hp </p>
+        <p>Attack: @p.Attack</p>
+        <p>Lives: @p.Lives</p>
+        <p>Gold: @p.Gold</p>
 
     </div>
+    <div class="column">
+        <p>Name: @m.Name </p>
+        <p>HP: @m.Hp </p>
+        <p>Attack: @m.Attack</p>
+        <p>Gold Dropped: @m.LootDropped</p>
+    </div>
+
+
+    @{
+
+        do
+        {
+            m.Hp = m.Hp - p.Attack;
+            p.Hp = p.Hp - m.Attack;
+        <p>@m.Name  gets hit for @m.Attack!</p>
+        <p>@p.Name  gets hit for @p.Attack!</p>
+        } while ((m.Hp = m.Hp - p.Attack) >= 0 && (p.Hp = p.Hp - m.Attack) >= 0);
+
+
+        if (m.Hp < 0)
+        {
+            <p>@p.Name  wins!</p>
+        }
+        else if (p.Hp < 0)
+        {
+            <p>@m.Name  wins!</p>
+        }
+        else
+        {
+            <form action="Fight" method="get">
+                <input type="submit" value="Fight!" />
+            </form>
+        }
+        
+
+    }
+    
+
+
+
+
+   
 
 
 </div>
