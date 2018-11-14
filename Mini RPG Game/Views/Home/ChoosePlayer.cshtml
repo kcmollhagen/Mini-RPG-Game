@@ -1,0 +1,29 @@
+﻿<h1>Welcome to the Mini RPG Game!</h1>
+<h2>Please choose the player</h2>
+
+
+<form method="get" action="Fight">
+    <h2>Choose Player.</h2>
+    @foreach (var p in ViewBag.players)
+    {
+        <p><input type="radio" name="ID" value="@p.ID" />@p.Name</p>
+    }
+
+
+    <h2>Choose Monster</h2>
+    @foreach (var m in ViewBag.monsters)
+    {
+        <p><input type="radio" name="ID2" value="@m.ID" />@m.Name</p>
+    }
+
+    <input type="submit"/>
+</form>
+
+@*<form method="get" action="ChooseMonster">
+    <input type="radio" name="player" value="Pikachu">Pikachu<br>
+    <input type="radio" name="player" value="Brock">Brock<br>
+    <input type="radio" name="player" value="Foeksia">Foeksia<br>
+    <input type="radio" name="player" value="Mimikyu">Mimikyu<br>
+</form>
+
+<input type="submit" value="Submit"><br>*@
