@@ -1,3 +1,17 @@
 ﻿<h1>Welcome to THE FIGHT!</h1>
-<p>It's @Sessior"] vs. @Session["Monster"]</p>
+<p>It's @Session["Player"] vs. @Session["Monster"]</p>
+
+<div class=" row">
+    <div class="column">
+       @{var p = @Session["Player"];}
+        @p.Name;
+        @p.HP;
+
+    </div>
+
+
+</div>
+
+
+
 

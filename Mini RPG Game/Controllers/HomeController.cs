@@ -44,9 +44,13 @@ namespace Mini_RPG_Game.Controllers
             return View();
         }
 
-        public ActionResult Fight(Monster monster, Player player)
+        public ActionResult Fight(int id, int id2)
         {
-            Session["Monster"] = monster.Name;
+            Player a = p.Players.Find(id);
+            Monster b = m.Monsters.Find(id2);
+
+            Session["Monster"] = b;
+            Session["Player"] = a;
             return View();
         }
     }
